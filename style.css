@@ -1,0 +1,307 @@
+/* Custom CSS for Professional Dark/Animated Theme */
+
+/* General Styles */
+:root {
+    --primary-color: #00bcd4; /* Cyan/Teal for primary highlights */
+    --secondary-color: #212529; /* Darker background */
+    --dark-color: #1a1a1a; /* Very dark background */
+}
+
+body {
+    background-color: var(--dark-color) !important;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #f8f9fa;
+}
+
+/* 1. Navigation Bar Styling */
+.navbar {
+    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    background-color: var(--dark-color) !important;
+}
+
+/* Sticky Nav Effect (Scroll hone par dark ho jaye) */
+.navbar.scrolled {
+    background-color: rgba(26, 26, 26, 0.95) !important;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.nav-link {
+    font-weight: 500;
+    position: relative;
+    transition: color 0.3s ease;
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* Hover/Animation Effect for Navbar Links (Character-based animation) */
+.animate-char {
+    display: inline-block;
+    overflow: hidden;
+}
+
+.nav-link:hover {
+    color: var(--primary-color) !important;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary-color);
+    transform: scaleX(0);
+    transition: transform 0.3s ease-in-out;
+}
+
+.nav-link:hover::after {
+    transform: scaleX(1);
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff !important;
+}
+.navbar-brand span {
+    color: var(--primary-color);
+}
+
+/* 2. Hero Section */
+.hero-section {
+    height: 100vh;
+    background: linear-gradient(135deg, #1e1e1e 0%, #0a0a0a 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Subtle background light/glow effect */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(0, 188, 212, 0.3) 0%, transparent 70%);
+    animation: moveGlow 15s infinite alternate;
+}
+
+@keyframes moveGlow {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(calc(100vw - 100px), calc(100vh - 100px)); }
+}
+
+.text-shadow-glow {
+    text-shadow: 0 0 10px var(--primary-color);
+}
+
+/* Button Glow Effect */
+.glow-on-hover {
+    box-shadow: 0 0 5px var(--primary-color), 0 0 20px rgba(0, 188, 212, 0.4);
+    transition: all 0.3s ease;
+}
+
+.glow-on-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 188, 212, 0.6);
+}
+
+/* 3. Section Titles */
+.section-title {
+    font-weight: 700;
+    font-size: 2.5rem;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 10px;
+    color: var(--primary-color);
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 2px;
+}
+
+/* 4. Cards Styling (Skills, Certifications, Achievements) */
+.bg-darker {
+    background-color: var(--secondary-color) !important;
+}
+
+.skill-group-card, .certification-card, .achievement-card, .project-card, .profile-card, .contact-form, .timeline-item {
+    background-color: #2c2c2c;
+    border: 1px solid #3a3a3a;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hover/Glow Effect for Cards */
+.skill-group-card:hover, .certification-card:hover, .achievement-card:hover, .project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5), 0 0 15px rgba(0, 188, 212, 0.3);
+}
+
+.skill-list li {
+    padding: 5px 0;
+    border-bottom: 1px dashed #3a3a3a;
+}
+.skill-list li:last-child {
+    border-bottom: none;
+}
+
+/* 5. Project Card Specifics */
+.project-card {
+    cursor: pointer;
+}
+.project-icon {
+    transition: transform 0.5s ease;
+}
+.project-card:hover .project-icon {
+    transform: rotate(10deg) scale(1.1);
+}
+
+/* 6. Timeline/Experience Styling */
+.timeline-item {
+    border-left: 3px solid var(--primary-color);
+    border-radius: 0 10px 10px 0;
+}
+.timeline-item ul {
+    padding-left: 20px;
+}
+.timeline-item li {
+    margin-bottom: 5px;
+}
+
+/* 7. Testimonials */
+.testimonial-box {
+    max-width: 700px;
+    background-color: #333;
+    padding: 2rem !important;
+    border-radius: 10px;
+    border-left: 5px solid var(--primary-color);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* 8. Contact Form */
+.contact-form .form-control {
+    background-color: #333;
+    border: 1px solid #444;
+    color: #fff;
+}
+.contact-form .form-control:focus {
+    background-color: #333;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgba(0, 188, 212, 0.25);
+    color: #fff;
+}
+
+/* 9. SOCIAL ICONS (FOOTER) - NO MOVEMENT, ONLY COLOR CHANGE */
+.social-links a {
+    /* TRANSITION FOR COLOR ONLY, NO TRANSFORM FOR MOVEMENT */
+    transition: color 0.3s ease-in-out; 
+    text-decoration: none; 
+}
+
+.social-links a:hover {
+    /* 'transform: scale()' IS REMOVED HERE, SO ICONS WILL NOT MOVE */
+    color: var(--primary-color) !important; 
+}
+
+/* Custom Colors for Freelance Logos */
+.fiverr-color { color: #1DBF73 !important; }
+.guru-color { color: #F58220 !important; }
+.linkedin-color { color: #0077B5 !important; }
+
+
+/* 10. Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .hero-section {
+        height: 70vh;
+        padding-top: 100px;
+    }
+    .display-1 {
+        font-size: 3rem;
+    }
+    .section-title {
+        font-size: 2rem;
+    }
+    .timeline-item {
+        border-left: none;
+        border-top: 3px solid var(--primary-color);
+        border-radius: 10px 10px 0 0;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+.profile-showcase {
+    /* Flexbox used to align name and icons on the same line */
+    display: flex;
+    align-items: center; 
+    justify-content: flex-start; 
+    padding: 20px;
+    margin-left: 25%; 
+}
+
+/* Style for your Name */
+.profile-showcase .user-name {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-right: 40px; /* Naam aur logos ke beech space */
+}
+
+/* Container for all Social Icons */
+.social-icons {
+    display: flex;
+    gap: 15px; /* Icons ke beech ka fasla */
+}
+
+/* Base style for each icon link */
+.icon-link {
+    display: inline-block; /* Images ko sahi se handle karne ke liye */
+    /* Chota size for the clickable area */
+    width: 40px; 
+    height: 40px; 
+    border-radius: 50%; /* Gol shape ke liye */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Animation ke liye transition */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Style for the actual image inside the link */
+.icon-link img {
+    /* Image ko parent 'icon-link' ke andar fit karne ke liye */
+    width: 100%; 
+    height: 100%;
+    /* Image ko kaat kar gol shape mein fit karega */
+    object-fit: cover; 
+    border-radius: 50%; /* Image ko gol banane ke liye */
+    /* Images ke borders ko thoda sa clean rakhega */
+    display: block; 
+}
+
+/* The beautiful Animated Hover Effect */
+.icon-link:hover {
+    /* Thora sa bada ho jayega */
+    transform: scale(1.2); 
+    /* Thora sa upar uth jayega (3D effect) */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); 
+}
+
